@@ -1,3 +1,5 @@
+import { Toaster } from '@redwoodjs/web/dist/toast'
+
 import { useAuth } from 'src/auth'
 import NavBar from 'src/components/NavBar/NavBar'
 
@@ -8,10 +10,13 @@ type AppLayoutProps = {
 const AppLayout = ({ children }: AppLayoutProps) => {
   const { currentUser } = useAuth()
   return (
-    <div className="h-screen flex flex-col">
-      <NavBar user={currentUser} space={undefined} />
-      {children}
-    </div>
+    <>
+      <Toaster toastOptions={{ duration: 3000 }} />
+      <div className="h-screen flex flex-col">
+        <NavBar user={currentUser} space={undefined} />
+        {children}
+      </div>
+    </>
   )
 }
 
