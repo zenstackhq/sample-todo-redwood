@@ -1,4 +1,6 @@
+import { SpaceUserRole } from '@prisma/client'
 import type { APIGatewayProxyEvent, Context } from 'aws-lambda'
+import { nanoid } from 'nanoid'
 
 import { DbAuthHandler, DbAuthHandlerOptions } from '@redwoodjs/auth-dbauth-api'
 
@@ -108,13 +110,24 @@ export const handler = async (
     //
     // If this returns anything else, it will be returned by the
     // `signUp()` function in the form of: `{ message: 'String here' }`.
-    handler: ({ username, hashedPassword, salt, userAttributes }) => {
+    handler: ({ username, hashedPassword, salt }) => {
+      // create a new user and a default space, add the user as admin
       return db.user.create({
         data: {
           email: username,
           hashedPassword: hashedPassword,
           salt: salt,
-          // name: userAttributes.name
+          spaces: {
+            create: {
+              space: {
+                create: {
+                  name: 'My Space',
+                  slug: nanoid(8),
+                },
+              },
+              role: SpaceUserRole.ADMIN,
+            },
+          },
         },
       })
     },

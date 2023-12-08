@@ -5,7 +5,7 @@ import TodosCell from 'src/components/TodosCell'
 
 const ListPage = ({ slug, id }) => {
   const SPACE_LIST_QUERY = gql`
-    query SpaceQuery($slug: String!, $id: String!) {
+    query SpaceListQuery($slug: String!, $id: String!) {
       spaceBySlug(slug: $slug) {
         id
         name

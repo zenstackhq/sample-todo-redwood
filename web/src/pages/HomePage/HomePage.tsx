@@ -10,8 +10,9 @@ const HomePage = () => {
   return (
     <>
       <MetaTags title="Home" description="Home page" />
+
       <div className="mt-8 text-center flex flex-col items-center w-full">
-        <h1 className="text-2xl text-gray-800">Welcome {user.email}!</h1>
+        <h1 className="text-2xl text-gray-800">Welcome {user?.email}!</h1>
 
         <div className="w-full p-8">
           <h2 className="text-lg md:text-xl text-left mb-8 text-gray-700">
@@ -22,7 +23,7 @@ const HomePage = () => {
           </h2>
           <SpacesCell />
         </div>
-      </div>{' '}
+      </div>
     </>
   )
 }

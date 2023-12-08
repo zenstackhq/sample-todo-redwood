@@ -22,6 +22,7 @@ import { toast } from '@redwoodjs/web/dist/toast'
 import { useCurrentUser } from 'src/auth'
 
 import Avatar from '../Avatar'
+import SpaceMembersCell from '../SpaceMembersCell'
 import TimeInfo from '../TimeInfo'
 
 export const QUERY = gql`
@@ -58,11 +59,13 @@ export const Success = ({
         <button
           className="btn btn-primary btn-wide"
           onClick={() =>
-            document.getElementById('create-list-modal').showModal()
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            (document.getElementById('create-list-modal') as any).showModal()
           }
         >
           Create a list
         </button>
+        <SpaceMembersCell slug={slug} />
       </div>
 
       <CreateDialog slug={slug} refetch={refetch} />
@@ -106,7 +109,7 @@ const CreateDialog = ({ slug, refetch }) => {
   const user = useCurrentUser()
 
   const close = () => {
-    document.getElementById('create-list-modal').close()
+    ;(document.getElementById('create-list-modal') as any).close()
   }
 
   const onSubmit = (data) => {
@@ -131,11 +134,7 @@ const CreateDialog = ({ slug, refetch }) => {
           onSubmit={onSubmit}
           className="flex-col w-full flex max-w-md"
         >
-          <Label
-            name="List title"
-            className="label text-lg"
-            errorClassName="label error"
-          />
+          <Label name="Title" className="label" errorClassName="label error" />
           <TextField
             name="title"
             className="input input-bordered w-full"
@@ -144,12 +143,14 @@ const CreateDialog = ({ slug, refetch }) => {
           />
           <FieldError name="name" className="text-red-600 block mt-2" />
 
-          <Label
-            name="Private"
-            className="label text-lg mt-4"
-            errorClassName="label error"
-          />
-          <CheckboxField name="private" className="checkbox" />
+          <div className="flex items-center mt-4">
+            <Label
+              name="Private"
+              className="label mr-2"
+              errorClassName="label error"
+            />
+            <CheckboxField name="private" className="checkbox" />
+          </div>
 
           <div className="flex mt-6 gap-2">
             <Submit className="btn btn-primary">Create</Submit>

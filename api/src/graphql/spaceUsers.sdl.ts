@@ -5,7 +5,7 @@ export const schema = gql`
     updatedAt: DateTime!
     space: Space!
     spaceId: String!
-    # user: User!
+    user: User!
     userId: String!
     role: SpaceUserRole!
   }
@@ -24,18 +24,18 @@ export const schema = gql`
   }
 
   type Query {
-    spaceUsers: [SpaceUser!]! @requireAuth
+    spaceUsers(slug: String!): [SpaceUser!]! @requireAuth
     spaceUser(id: String!): SpaceUser @requireAuth
   }
 
   input CreateSpaceUserInput {
-    spaceId: String!
-    userId: String!
+    spaceSlug: String!
+    email: String!
     role: SpaceUserRole!
   }
 
   input UpdateSpaceUserInput {
-    spaceId: String
+    spaceSlug: String
     userId: String
     role: SpaceUserRole
   }

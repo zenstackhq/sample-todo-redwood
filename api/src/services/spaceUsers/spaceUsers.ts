@@ -1,27 +1,61 @@
 import type {
-  QueryResolvers,
   MutationResolvers,
+  QueryResolvers,
   SpaceUserRelationResolvers,
 } from 'types/graphql'
 
+import { RedwoodGraphQLError } from '@redwoodjs/graphql-server'
+
 import { db } from 'src/lib/db'
 
-export const spaceUsers: QueryResolvers['spaceUsers'] = () => {
-  return db.spaceUser.findMany()
+export const spaceUsers: QueryResolvers['spaceUsers'] = ({ slug }) => {
+  return db.spaceUser.findMany({
+    where: { space: { slug } },
+    include: { space: true, user: true },
+  })
 }
 
 export const spaceUser: QueryResolvers['spaceUser'] = ({ id }) => {
   return db.spaceUser.findUnique({
     where: { id },
+    include: { space: true, user: true },
   })
 }
 
-export const createSpaceUser: MutationResolvers['createSpaceUser'] = ({
+export class MemberAlreadyExistError extends RedwoodGraphQLError {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  constructor(message: string, extensions?: Record<string, any>) {
+    super(message, extensions)
+  }
+}
+
+export class UserNotFoundError extends RedwoodGraphQLError {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  constructor(message: string, extensions?: Record<string, any>) {
+    super(message, extensions)
+  }
+}
+
+export const createSpaceUser: MutationResolvers['createSpaceUser'] = async ({
   input,
 }) => {
-  return db.spaceUser.create({
-    data: input,
-  })
+  try {
+    return await db.spaceUser.create({
+      data: {
+        role: input.role,
+        space: { connect: { slug: input.spaceSlug } },
+        user: { connect: { email: input.email } },
+      },
+    })
+  } catch (err) {
+    if (err.code === 'P2002') {
+      throw new MemberAlreadyExistError('User is already a member of the space')
+    } else if (err.code === 'P2025') {
+      throw new UserNotFoundError('User not found')
+    } else {
+      throw err
+    }
+  }
 }
 
 export const updateSpaceUser: MutationResolvers['updateSpaceUser'] = ({
@@ -29,7 +63,13 @@ export const updateSpaceUser: MutationResolvers['updateSpaceUser'] = ({
   input,
 }) => {
   return db.spaceUser.update({
-    data: input,
+    data: {
+      role: input.role,
+      space: input.spaceSlug
+        ? { connect: { slug: input.spaceSlug } }
+        : undefined,
+      user: input.userId ? { connect: { id: input.userId } } : undefined,
+    },
     where: { id },
   })
 }
