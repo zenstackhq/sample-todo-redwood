@@ -6,17 +6,15 @@ import type {
 
 import { RedwoodGraphQLError } from '@redwoodjs/graphql-server'
 
-import { db } from 'src/lib/db'
-
 export const spaceUsers: QueryResolvers['spaceUsers'] = ({ slug }) => {
-  return db.spaceUser.findMany({
+  return context.db.spaceUser.findMany({
     where: { space: { slug } },
     include: { space: true, user: true },
   })
 }
 
 export const spaceUser: QueryResolvers['spaceUser'] = ({ id }) => {
-  return db.spaceUser.findUnique({
+  return context.db.spaceUser.findUnique({
     where: { id },
     include: { space: true, user: true },
   })
@@ -40,7 +38,7 @@ export const createSpaceUser: MutationResolvers['createSpaceUser'] = async ({
   input,
 }) => {
   try {
-    return await db.spaceUser.create({
+    return await context.db.spaceUser.create({
       data: {
         role: input.role,
         space: { connect: { slug: input.spaceSlug } },
@@ -62,7 +60,7 @@ export const updateSpaceUser: MutationResolvers['updateSpaceUser'] = ({
   id,
   input,
 }) => {
-  return db.spaceUser.update({
+  return context.db.spaceUser.update({
     data: {
       role: input.role,
       space: input.spaceSlug
@@ -77,16 +75,16 @@ export const updateSpaceUser: MutationResolvers['updateSpaceUser'] = ({
 export const deleteSpaceUser: MutationResolvers['deleteSpaceUser'] = ({
   id,
 }) => {
-  return db.spaceUser.delete({
+  return context.db.spaceUser.delete({
     where: { id },
   })
 }
 
 export const SpaceUser: SpaceUserRelationResolvers = {
   space: (_obj, { root }) => {
-    return db.spaceUser.findUnique({ where: { id: root?.id } }).space()
+    return context.db.spaceUser.findUnique({ where: { id: root?.id } }).space()
   },
   user: (_obj, { root }) => {
-    return db.spaceUser.findUnique({ where: { id: root?.id } }).user()
+    return context.db.spaceUser.findUnique({ where: { id: root?.id } }).user()
   },
 }

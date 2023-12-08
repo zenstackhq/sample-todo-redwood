@@ -15,6 +15,10 @@ export const schema = gql`
     todos: [Todo]!
   }
 
+  extend type User {
+    todos: [Todo]!
+  }
+
   type Query {
     todos(listId: String!): [Todo!]! @requireAuth
     todo(id: String!): Todo @requireAuth

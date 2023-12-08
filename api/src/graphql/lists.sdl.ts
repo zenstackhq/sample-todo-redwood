@@ -11,6 +11,14 @@ export const schema = gql`
     private: Boolean!
   }
 
+  extend type User {
+    lists: [List]!
+  }
+
+  extend type Space {
+    lists: [List]!
+  }
+
   type Query {
     lists(slug: String!): [List!]! @requireAuth
     list(id: String!): List @requireAuth
