@@ -1,3 +1,5 @@
+import { useZenStack } from '@zenstackhq/redwood'
+
 import { createAuthDecoder } from '@redwoodjs/auth-dbauth-api'
 import { createGraphQLHandler } from '@redwoodjs/graphql-server'
 
@@ -18,6 +20,7 @@ export const handler = createGraphQLHandler({
   directives,
   sdls,
   services,
+  extraPlugins: [useZenStack(db)],
   onException: () => {
     // Disconnect from your database with an unhandled exception.
     db.$disconnect()

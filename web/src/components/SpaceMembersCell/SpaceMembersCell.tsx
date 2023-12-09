@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { PlusIcon, TrashIcon } from '@heroicons/react/24/outline'
-import { SpaceUserRole } from '@prisma/client'
 import type { SpaceMembersQuery } from 'types/graphql'
 
 import {
@@ -13,9 +12,9 @@ import {
   useForm,
 } from '@redwoodjs/forms'
 import {
-  type CellSuccessProps,
-  type CellFailureProps,
   useMutation,
+  type CellFailureProps,
+  type CellSuccessProps,
 } from '@redwoodjs/web'
 
 import { useCurrentUser } from 'src/auth'
@@ -132,8 +131,8 @@ const ManageMembersDialog = ({ members, space, refetch }) => {
               required
             />
             <SelectField name="role" className="select mr-2">
-              <option value={SpaceUserRole.USER}>USER</option>
-              <option value={SpaceUserRole.ADMIN}>ADMIN</option>
+              <option value="USER">USER</option>
+              <option value="ADMIN">ADMIN</option>
             </SelectField>
 
             <Submit>
