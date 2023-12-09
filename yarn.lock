@@ -6736,15 +6736,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@zenstackhq/redwood@npm:^1.4.1":
-  version: 1.4.1
-  resolution: "@zenstackhq/redwood@npm:1.4.1"
+"@zenstackhq/redwood@npm:latest":
+  version: 0.5.0
+  resolution: "@zenstackhq/redwood@npm:0.5.0"
   dependencies:
     "@zenstackhq/runtime": 1.4.1
     colors: 1.4.0
   bin:
     redwood: node setup.js
-  checksum: a5ae44a5ac78a0e52cbd1b503e0736fdb391f9345e569b14e80e1a6f4785a9ec47c8a35cccac338cd015fce229e640f1222fdf173c5d86b085780845f62e7e2f
+  checksum: 4bb4a286744fd7118b37e2c7772fa5480b2bcb6714aefced3566b0c690f1ff845d21bb1544c1dc924ba3aa43151f5b4ca23def64b1b6a3e3a66c10859ef53d64
   languageName: node
   linkType: hard
 
@@ -7155,7 +7155,7 @@ __metadata:
     "@redwoodjs/api": 6.4.2
     "@redwoodjs/auth-dbauth-api": 6.4.2
     "@redwoodjs/graphql-server": 6.4.2
-    "@zenstackhq/redwood": ^1.4.1
+    "@zenstackhq/redwood": latest
     "@zenstackhq/runtime": ^1.4.1
     zenstack: latest
   languageName: unknown
