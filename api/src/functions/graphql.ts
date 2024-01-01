@@ -20,9 +20,9 @@ export const handler = createGraphQLHandler({
   directives,
   sdls,
   services,
-  extraPlugins: [useZenStack(db)],
   onException: () => {
     // Disconnect from your database with an unhandled exception.
     db.$disconnect()
   },
+  extraPlugins: [useZenStack(db)],
 })

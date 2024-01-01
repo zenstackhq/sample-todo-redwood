@@ -19,3 +19,7 @@
   open = true
 [notifications]
   versionUpdates = ["latest"]
+
+[[experimental.cli.plugins]]
+package = "@zenstackhq/redwood"
+enabled = true

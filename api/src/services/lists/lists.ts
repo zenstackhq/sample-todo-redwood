@@ -19,13 +19,6 @@ export const list: QueryResolvers['list'] = ({ id }) => {
 
 export const createList: MutationResolvers['createList'] = ({ input }) => {
   const { ownerId, spaceSlug, ...rest } = input
-  console.log('List create input:', {
-    data: {
-      ...rest,
-      owner: { connect: { id: ownerId } },
-      space: { connect: { slug: spaceSlug } },
-    },
-  })
   return context.db.list.create({
     data: {
       ...rest,

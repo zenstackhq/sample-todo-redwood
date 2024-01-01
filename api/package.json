@@ -1,15 +1,19 @@
 {
-  "name": "api",
-  "version": "0.0.0",
-  "private": true,
-  "dependencies": {
-    "@redwoodjs/api": "6.4.2",
-    "@redwoodjs/auth-dbauth-api": "6.4.2",
-    "@redwoodjs/graphql-server": "6.4.2",
-    "@zenstackhq/redwood": "latest",
-    "@zenstackhq/runtime": "^1.4.1"
-  },
-  "devDependencies": {
-    "zenstack": "latest"
-  }
+    "name": "api",
+    "version": "0.0.0",
+    "private": true,
+    "dependencies": {
+        "@redwoodjs/api": "6.6.0",
+        "@redwoodjs/auth-dbauth-api": "6.6.0",
+        "@redwoodjs/graphql-server": "6.6.0",
+        "@zenstackhq/redwood": "^1.6.0",
+        "@zenstackhq/runtime": "^1.6.0"
+    },
+    "devDependencies": {
+        "zenstack": "^1.6.0"
+    },
+    "zenstack": {
+        "schema": "db/schema.zmodel",
+        "prisma": "db/schema.prisma"
+    }
 }

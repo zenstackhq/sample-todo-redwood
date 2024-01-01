@@ -55,21 +55,16 @@ model SpaceUser {
 /// @@allow('all', auth() == this)
 model User {
     id String @id() @default(uuid())
+    email String @unique()
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt()
-    /// @email
-    email String @unique()
-    emailVerified DateTime?
-    /// @password
-    /// @omit
-    password String?
-    name String?
+    hashedPassword String
+    salt String
+    resetToken String?
+    resetTokenExpiresAt DateTime?
     spaces SpaceUser[]
-    /// @url
-    image String?
     lists List[]
     todos Todo[]
-    accounts Account[]
 }
 
 /// @@deny('all', auth() == null)
@@ -77,6 +72,7 @@ model User {
 /// @@allow('create', owner == auth() && space.members?[user == auth()])
 /// @@allow('update', owner == auth() && space.members?[user == auth()] && future().owner == owner)
 /// @@allow('delete', owner == auth())
+/// @@deny('create', true)
 model List {
     id String @id() @default(uuid())
     createdAt DateTime @default(now())
@@ -106,23 +102,4 @@ model Todo {
     /// @length(1, 100)
     title String
     completedAt DateTime?
-}
-
-model Account {
-    id String @id() @default(uuid())
-    userId String
-    type String
-    provider String
-    providerAccountId String
-    refresh_token String?
-    refresh_token_expires_in Int?
-    access_token String?
-    expires_at Int?
-    token_type String?
-    scope String?
-    id_token String?
-    session_state String?
-    user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-    @@unique([provider, providerAccountId])
 }
