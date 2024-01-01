@@ -128,8 +128,6 @@ model List {
 
     // can be deleted by owner
     @@allow('delete', owner == auth())
-
-    @@deny('create', true)
 }
 
 /*
