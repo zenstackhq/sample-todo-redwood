@@ -15,11 +15,6 @@ generator js {
     provider = 'prisma-client-js'
 }
 
-plugin prisma {
-    provider = '@core/prisma'
-    output = "db/schema.prisma"
-}
-
 /*
  * Enum for user's role in a space
  */
