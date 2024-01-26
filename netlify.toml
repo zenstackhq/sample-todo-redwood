@@ -2,7 +2,8 @@
   command = "yarn rw @zenstackhq generate && yarn rw deploy netlify"
   publish = "web/dist"
   functions = "api/dist/functions"
-  external_node_modules = ["@zenstackhq/runtime", ".zenstack"]
+  external_node_modules = ["@zenstackhq/runtime"]
+  included_files = ["node_modules/.zenstack/*"]
 
 [dev]
   # To use [Netlify Dev](https://www.netlify.com/products/dev/),
