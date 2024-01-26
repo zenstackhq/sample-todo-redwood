@@ -27,7 +27,6 @@
   "dependencies": {
     "@heroicons/react": "^2.0.18",
     "moment": "^2.29.4",
-    "nanoid": "^3.0.0",
-    ".zenstack": "^1.0.0"
+    "nanoid": "^3.0.0"
   }
 }
