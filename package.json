@@ -8,6 +8,7 @@
   },
   "devDependencies": {
     "@redwoodjs/auth-dbauth-setup": "6.6.2",
+    "@redwoodjs/cli-data-migrate": "6.6.2",
     "@redwoodjs/core": "6.6.2",
     "prettier-plugin-tailwindcss": "0.4.1"
   },
@@ -26,6 +27,7 @@
   "dependencies": {
     "@heroicons/react": "^2.0.18",
     "moment": "^2.29.4",
-    "nanoid": "^3.0.0"
+    "nanoid": "^3.0.0",
+    ".zenstack": "^1.0.0"
   }
 }
