@@ -72,7 +72,6 @@ model User {
 /// @@allow('create', owner == auth() && space.members?[user == auth()])
 /// @@allow('update', owner == auth() && space.members?[user == auth()] && future().owner == owner)
 /// @@allow('delete', owner == auth())
-/// @@deny('create', true)
 model List {
     id String @id() @default(uuid())
     createdAt DateTime @default(now())
