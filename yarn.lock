@@ -6612,21 +6612,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@zenstackhq/language@npm:1.7.1":
-  version: 1.7.1
-  resolution: "@zenstackhq/language@npm:1.7.1"
+"@zenstackhq/language@npm:1.12.4":
+  version: 1.12.4
+  resolution: "@zenstackhq/language@npm:1.12.4"
   dependencies:
-    langium: 1.2.0
-  checksum: 9af12b6d51a5050ee0fd18a0fdaf0a5690844c0480db1172284c674c048d3ff8e64c8395d91132904186b28bffccb7350e67dd137f8d1129ac3653d3bd710884
+    langium: 1.3.1
+  checksum: 059145c8ac629bf5edb6d8d91210826ef45f5f7cd862e3ef5c65fd48cd5b25e6c7713ae161b4b904ac8aa639a8390f06c5260fe3677f1cd9d231bc56f54851af
   languageName: node
   linkType: hard
 
-"@zenstackhq/redwood@npm:1.7.1":
-  version: 1.7.1
-  resolution: "@zenstackhq/redwood@npm:1.7.1"
+"@zenstackhq/redwood@npm:^1.12.4":
+  version: 1.12.4
+  resolution: "@zenstackhq/redwood@npm:1.12.4"
   dependencies:
     "@redwoodjs/cli-helpers": ^6.6.0
-    "@zenstackhq/runtime": 1.7.1
+    "@zenstackhq/runtime": 1.12.4
     colors: 1.4.0
     execa: ^5.0.0
     listr2: ^6.0.0
@@ -6635,13 +6635,13 @@ __metadata:
     yargs: ^17.7.2
   bin:
     redwood: bin/cli
-  checksum: 961be522545808e57423bce59a8a747b063648c495cbcc7de154cfeb92304178f04578a465686788004b7d9eb5470ac25d5202975f92afb820995f3bbcf85681
+  checksum: 6515ce1c1da42a79f3ac34e8d9bb1559644e90e5ade9f7c64e876176b0de545d93f02db431f6f59e1511cd184e06dcbfaccd4b1b477b8ae23ba46bb5cb20b21b
   languageName: node
   linkType: hard
 
-"@zenstackhq/runtime@npm:1.7.1":
-  version: 1.7.1
-  resolution: "@zenstackhq/runtime@npm:1.7.1"
+"@zenstackhq/runtime@npm:1.12.4, @zenstackhq/runtime@npm:^1.12.4":
+  version: 1.12.4
+  resolution: "@zenstackhq/runtime@npm:1.12.4"
   dependencies:
     "@types/bcryptjs": ^2.4.2
     bcryptjs: ^2.4.3
@@ -6660,25 +6660,25 @@ __metadata:
     uuid: ^9.0.0
     zod: ^3.22.4
     zod-validation-error: ^1.5.0
-  checksum: af6bffc10a6e753e8397fcb67b51015dea01a9edadd7406c431fe3846ae7f8669a56595cee2c0e8fbd8020b5760432f150eb9421c993284b7ac3328f9363d79c
+  checksum: a187f104f1038057456f74de07dc1a8f34ea6e6e49b69de941eeb2bd1c7ed163c4479b3ccd2f62836166c21d9fdf4786f209d595b909b4269bd2feb142b1994c
   languageName: node
   linkType: hard
 
-"@zenstackhq/sdk@npm:1.7.1":
-  version: 1.7.1
-  resolution: "@zenstackhq/sdk@npm:1.7.1"
+"@zenstackhq/sdk@npm:1.12.4":
+  version: 1.12.4
+  resolution: "@zenstackhq/sdk@npm:1.12.4"
   dependencies:
     "@prisma/generator-helper": ^5.0.0
     "@prisma/internals": ^4.16.0
     "@prisma/internals-v5": "npm:@prisma/internals@^5.0.0"
-    "@zenstackhq/language": 1.7.1
-    "@zenstackhq/runtime": 1.7.1
+    "@zenstackhq/language": 1.12.4
+    "@zenstackhq/runtime": 1.12.4
     lower-case-first: ^2.0.2
     prettier: ^2.8.3 || 3.x
     semver: ^7.5.2
     ts-morph: ^16.0.0
     upper-case-first: ^2.0.2
-  checksum: cf93a4c4077868ee005e07ae96a5447ddd7ca5e17f1131e6d65f02f2a007b97063d07edcb03570b5df589052ac06cd9514be4edab8c3b88b954ee2374ceffece
+  checksum: a0ca1405c434712219e3f83c643c15a087bc4ec33c9eeeb9dc576467297dd7c770aafb63a4ecaceae42138d65e55a9940c047032c47870d1f48f574f07c0f8b3
   languageName: node
   linkType: hard
 
@@ -7046,9 +7046,9 @@ __metadata:
     "@redwoodjs/api": 6.6.2
     "@redwoodjs/auth-dbauth-api": 6.6.2
     "@redwoodjs/graphql-server": 6.6.2
-    "@zenstackhq/redwood": 1.7.1
-    "@zenstackhq/runtime": 1.7.1
-    zenstack: 1.7.1
+    "@zenstackhq/redwood": ^1.12.4
+    "@zenstackhq/runtime": ^1.12.4
+    zenstack: ^1.12.4
   languageName: unknown
   linkType: soft
 
@@ -14874,16 +14874,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"langium@npm:1.2.0":
-  version: 1.2.0
-  resolution: "langium@npm:1.2.0"
+"langium@npm:1.3.1":
+  version: 1.3.1
+  resolution: "langium@npm:1.3.1"
   dependencies:
     chevrotain: ~10.4.2
     chevrotain-allstar: ~0.1.4
     vscode-languageserver: ~8.0.2
     vscode-languageserver-textdocument: ~1.0.8
     vscode-uri: ~3.0.7
-  checksum: 4bd3a316df85178b3bcae50484d53d447506d05025a0901358f507edb306b492937ce4891837ef16f3231e3dea7122c39f0067c6981d484147b38ee65b2a94f7
+  checksum: f4f635d48e02de7c052f31beecb9013615d1b1b69a7a6ee781383ee4cd2d800ff16b268a3b9dfb263acc116126b5ac9c74d8749951a39c10c86e559e8fda3bc5
   languageName: node
   linkType: hard
 
@@ -16264,13 +16264,6 @@ __metadata:
     util: ^0.11.0
     vm-browserify: ^1.0.1
   checksum: 0e05321a6396408903ed642231d2bca7dd96492d074c7af161ba06a63c95378bd3de50b4105eccbbc02d93ba3da69f0ff5e624bc2a8c92ca462ceb6a403e7986
-  languageName: node
-  linkType: hard
-
-"node-machine-id@npm:^1.1.12":
-  version: 1.1.12
-  resolution: "node-machine-id@npm:1.1.12"
-  checksum: ab2fea5f75a6f1ce3c76c5e0ae3903b631230e0a99b003d176568fff8ddbdf7b2943be96cd8d220c497ca0f6149411831f8a450601929f326781cb1b59bab7f8
   languageName: node
   linkType: hard
 
@@ -22570,23 +22563,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zenstack@npm:1.7.1":
-  version: 1.7.1
-  resolution: "zenstack@npm:1.7.1"
+"zenstack@npm:^1.12.4":
+  version: 1.12.4
+  resolution: "zenstack@npm:1.12.4"
   dependencies:
     "@paralleldrive/cuid2": ^2.2.0
     "@prisma/generator-helper": ^5.0.0
-    "@zenstackhq/language": 1.7.1
-    "@zenstackhq/sdk": 1.7.1
+    "@zenstackhq/language": 1.12.4
+    "@zenstackhq/sdk": 1.12.4
     async-exit-hook: ^2.0.1
     change-case: ^4.1.2
     colors: 1.4.0
     commander: ^8.3.0
     get-latest-version: ^5.0.1
-    langium: 1.2.0
+    langium: 1.3.1
     lower-case-first: ^2.0.2
     mixpanel: ^0.17.0
-    node-machine-id: ^1.1.12
     ora: ^5.4.1
     pluralize: ^8.0.0
     pretty-repl: ^4.0.0
@@ -22608,7 +22600,7 @@ __metadata:
     zod-validation-error: ^1.5.0
   bin:
     zenstack: bin/cli
-  checksum: cfb9313112527500e2ceb8077a88543ca638cb0a5d4081eccddde2a1b97b795fc1aba0db6b07534979650035c2439da8ca8fd91f5c7e03957b5857e4ad931f3f
+  checksum: b3bb4672136e2ad85e76fbb5c613ab154c2797b6654402777e685039c08aa6e7b2593cb86eb045211aaae9f767ea7daf236199b086f0af56d49ab1d479a8deb1
   languageName: node
   linkType: hard
 
