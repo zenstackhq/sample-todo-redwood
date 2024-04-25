@@ -50,14 +50,11 @@ export const Success = ({
     onCompleted: refetch,
   })
 
-  const user = useCurrentUser()
-
   const onCreate = ({ title }) => {
     createTodo({
       variables: {
         input: {
           title,
-          ownerId: user.id,
           listId: list.id,
         },
       },
@@ -68,8 +65,8 @@ export const Success = ({
   const formMethods = useForm()
 
   return (
-    <div className="container w-full flex flex-col items-center py-12 mx-auto">
-      <h1 className="text-2xl font-semibold mb-4">{list.title}</h1>
+    <div className="container mx-auto flex w-full flex-col items-center py-12">
+      <h1 className="mb-4 text-2xl font-semibold">{list.title}</h1>
 
       <div className="flex space-x-2">
         <Form
@@ -80,15 +77,15 @@ export const Success = ({
           <TextField
             name="title"
             placeholder="Type a title and press enter"
-            className="input input-bordered w-72 max-w-xs mt-2"
+            className="input input-bordered mt-2 w-72 max-w-xs"
           />
           <Submit>
-            <PlusIcon className="w-6 h-6 text-gray-500" />
+            <PlusIcon className="h-6 w-6 text-gray-500" />
           </Submit>
         </Form>
       </div>
 
-      <ul className="flex flex-col space-y-4 py-8 w-11/12 md:w-auto">
+      <ul className="flex w-11/12 flex-col space-y-4 py-8 md:w-auto">
         {todos.map((item) => {
           return (
             <li key={item.id}>
@@ -140,12 +137,12 @@ const Todo = ({ value, refetch }) => {
   }
 
   return (
-    <div className="border rounded-lg px-8 py-4 shadow-lg flex flex-col items-center w-full lg:w-[480px]">
-      <div className="flex justify-between w-full mb-4">
+    <div className="flex w-full flex-col items-center rounded-lg border px-8 py-4 shadow-lg lg:w-[480px]">
+      <div className="mb-4 flex w-full justify-between">
         <h3
-          className={`text-xl line-clamp-1 ${
+          className={`line-clamp-1 text-xl ${
             value.completedAt
-              ? 'line-through text-gray-400 italic'
+              ? 'italic text-gray-400 line-through'
               : 'text-gray-700'
           }`}
         >
@@ -159,12 +156,12 @@ const Todo = ({ value, refetch }) => {
             onChange={(e) => onToggleCompleted(e.currentTarget.checked)}
           />
           <TrashIcon
-            className="w-6 h-6 text-gray-600 cursor-pointer"
+            className="h-6 w-6 cursor-pointer text-gray-600"
             onClick={() => onDelete()}
           />
         </div>
       </div>
-      <div className="flex justify-end w-full space-x-2">
+      <div className="flex w-full justify-end space-x-2">
         <TimeInfo value={value} />
         <Avatar user={value.owner} size="small" />
       </div>

@@ -6,11 +6,11 @@
     "@redwoodjs/api": "6.6.2",
     "@redwoodjs/auth-dbauth-api": "6.6.2",
     "@redwoodjs/graphql-server": "6.6.2",
-    "@zenstackhq/redwood": "^1.12.4",
-    "@zenstackhq/runtime": "^1.12.4"
+    "@zenstackhq/redwood": "^2.0.0",
+    "@zenstackhq/runtime": "^2.0.0"
   },
   "devDependencies": {
-    "zenstack": "^1.12.4"
+    "zenstack": "^2.0.0"
   },
   "zenstack": {
     "schema": "db/schema.zmodel",
